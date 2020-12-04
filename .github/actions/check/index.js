@@ -10,33 +10,14 @@ const prHasAutomergeLabel = (pr) => {
 async function main() {
   const token = core.getInput('repo-token');
   const client = getOctokit(token);
-  const baseBranch = context.payload.ref;
 
   if (context.payload.check_suite.conclusion === 'success') {
-    console.log(context.payload.check_suite.pull_requests);
-    /*await client.pulls.merge({
+    console.log(context.payload.check_suite);
+    await client.pulls.merge({
       ...context.repo,
-      pull_number: pr.number,
-    });*/
+      pull_number: context.payload.check_suite.pull_requests[0].number,
+    });
   }
-
-  /*const pullsResponse = await client.pulls.list({
-    ...context.repo,
-    base: baseBranch,
-    state: 'open',
-  });
-  const prs = pullsResponse.data;
-
-  prs.map((pr) => {
-    if (prHasAutomergeLabel(pr)) {
-      client.pulls.updateBranch({
-        ...context.repo,
-        pull_number: pr.number,
-      });
-
-      console.log(pr);
-    }
-  });*/
 }
 
 main();
