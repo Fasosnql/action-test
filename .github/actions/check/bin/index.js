@@ -25,8 +25,13 @@ async function main() {
   const client = (0,_actions_github__WEBPACK_IMPORTED_MODULE_1__.getOctokit)(token);
   const baseBranch = _actions_github__WEBPACK_IMPORTED_MODULE_1__.context.payload.ref;
 
-  console.log(_actions_github__WEBPACK_IMPORTED_MODULE_1__.context);
-  console.log(_actions_github__WEBPACK_IMPORTED_MODULE_1__.context.payload);
+  if (_actions_github__WEBPACK_IMPORTED_MODULE_1__.context.payload.check_suite.conclusion === 'success') {
+    console.log(_actions_github__WEBPACK_IMPORTED_MODULE_1__.context.payload.check_suite.pull_requests);
+    /*await client.pulls.merge({
+      ...context.repo,
+      pull_number: pr.number,
+    });*/
+  }
 
   /*const pullsResponse = await client.pulls.list({
     ...context.repo,
