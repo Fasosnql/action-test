@@ -14,6 +14,31 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+const token = _actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput('token');
+const client = new _actions_github__WEBPACK_IMPORTED_MODULE_1__.GitHub(token);
+
+async function main() {
+  const baseBranch = _actions_github__WEBPACK_IMPORTED_MODULE_1__.context.payload.ref;
+  const pullsResponse = await client.pulls.list({
+    ..._actions_github__WEBPACK_IMPORTED_MODULE_1__.context.repo,
+    base: baseBranch,
+    state: 'open',
+  });
+  const prs = pullsResponse.data;
+
+  await Promise.all(
+    prs.map((pr) => {
+      console.log(pr);
+      /*client.pulls.updateBranch({
+        ...github.context.repo,
+        pull_number: pr.number,
+      });*/
+    }),
+  );
+}
+
+main();
+
 console.log('HELLO EVERYONE 1111111111');
 
 
