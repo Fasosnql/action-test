@@ -6,8 +6,9 @@ jobs:
     steps:
       - checkout
       - run: echo "Hello world!"
+      - run: yarn install
 workflows:
   default:
     jobs:
-      - install
+      - build
       - test
