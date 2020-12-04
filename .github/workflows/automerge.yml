@@ -18,7 +18,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Hello world action step
-        uses: ../actions/automerge
+        uses: ./
         id: automerge
         with:
           repo-token: "${{ secrets.PRIVATE_TOKEN }}"

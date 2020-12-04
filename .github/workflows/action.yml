@@ -1,0 +1,11 @@
+name: 'Automerge'
+description: 'Automatically merge PRs labeled AUTOMERGE'
+
+inputs:
+  repo-token:
+    description: 'Token of repo'
+    required: true
+
+runs:
+  using: 'node12'
+  main: 'index.js'
