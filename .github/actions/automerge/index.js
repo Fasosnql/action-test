@@ -2,7 +2,7 @@ import * as core from '@actions/core';
 import { getOctokit, context } from '@actions/github';
 
 async function main() {
-  const token = core.getInput('github-token');
+  const token = core.getInput('repo-token');
   const client = getOctokit(token);
   const baseBranch = context.payload.ref;
 
