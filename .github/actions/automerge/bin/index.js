@@ -16,7 +16,7 @@ __webpack_require__.r(__webpack_exports__);
 
 async function main() {
   const token = _actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput('github-token');
-  const client = new _actions_github__WEBPACK_IMPORTED_MODULE_1__.GitHub(token);
+  const client = (0,_actions_github__WEBPACK_IMPORTED_MODULE_1__.getOctokit)(token);
   const baseBranch = _actions_github__WEBPACK_IMPORTED_MODULE_1__.context.payload.ref;
 
   const pullsResponse = await client.pulls.list({

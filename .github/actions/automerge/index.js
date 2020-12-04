@@ -1,9 +1,9 @@
 import * as core from '@actions/core';
-import { GitHub, context } from '@actions/github';
+import { getOctokit, context } from '@actions/github';
 
 async function main() {
   const token = core.getInput('github-token');
-  const client = new GitHub(token);
+  const client = getOctokit(token);
   const baseBranch = context.payload.ref;
 
   const pullsResponse = await client.pulls.list({
