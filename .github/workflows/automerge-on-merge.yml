@@ -18,4 +18,4 @@ jobs:
     - with:
         repo-token: "${{ secrets.PRIVATE_TOKEN }}"
         node-version: '12'
-    - run: node ../scripts/automerge.js
+    - run: node ../../scripts/automerge-on-merge.js
