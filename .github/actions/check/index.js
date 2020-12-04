@@ -12,8 +12,13 @@ async function main() {
   const client = getOctokit(token);
   const baseBranch = context.payload.ref;
 
-  console.log(context);
-  console.log(context.payload);
+  if (context.payload.check_suite.conclusion === 'success') {
+    console.log(context.payload.check_suite.pull_requests);
+    /*await client.pulls.merge({
+      ...context.repo,
+      pull_number: pr.number,
+    });*/
+  }
 
   /*const pullsResponse = await client.pulls.list({
     ...context.repo,
