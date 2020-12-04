@@ -8,7 +8,10 @@
 name: Check
 on:
   check_run:
-    types: [ created, rerequested, completed, requested_action ]
+    types: [ completed ]
+    branches:
+      - '**'
+      - '!master'
 
 jobs:
   check:
