@@ -7,11 +7,11 @@
 
 name: Merge after success ( CHECK )
 on:
-  check_suite:
+  check_run:
     types: [ completed ]
 
 jobs:
-  automerge:
+  check:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
