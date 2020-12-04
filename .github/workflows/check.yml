@@ -9,9 +9,6 @@ name: Check
 on:
   check_run:
     types: [ completed ]
-    branches:
-      - '**'
-      - '!master'
 
 jobs:
   check:
