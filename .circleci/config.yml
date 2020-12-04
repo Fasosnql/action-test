@@ -1,0 +1,14 @@
+version: 2.1
+jobs:
+  default:
+    machine:
+      image: 'ubuntu-2004:202010-01'
+    steps:
+      - checkout
+      - run: yarn install
+      - run: yarn test
+
+workflows:
+  default:
+    jobs:
+      - default
