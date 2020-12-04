@@ -12,14 +12,17 @@ async function main() {
   const client = getOctokit(token);
   const baseBranch = context.payload.ref;
 
-  const pullsResponse = await client.pulls.list({
+  console.log(context);
+  console.log(context.payload);
+
+  /*const pullsResponse = await client.pulls.list({
     ...context.repo,
     base: baseBranch,
     state: 'open',
   });
   const prs = pullsResponse.data;
 
-  prs.forEach((pr) => {
+  prs.map((pr) => {
     if (prHasAutomergeLabel(pr)) {
       client.pulls.updateBranch({
         ...context.repo,
@@ -28,7 +31,7 @@ async function main() {
 
       console.log(pr);
     }
-  });
+  });*/
 }
 
 main();

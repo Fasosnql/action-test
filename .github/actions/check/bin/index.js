@@ -2,7 +2,7 @@ module.exports =
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ 925:
+/***/ 385:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -25,23 +25,26 @@ async function main() {
   const client = (0,_actions_github__WEBPACK_IMPORTED_MODULE_1__.getOctokit)(token);
   const baseBranch = _actions_github__WEBPACK_IMPORTED_MODULE_1__.context.payload.ref;
 
-  const pullsResponse = await client.pulls.list({
-    ..._actions_github__WEBPACK_IMPORTED_MODULE_1__.context.repo,
+  console.log(_actions_github__WEBPACK_IMPORTED_MODULE_1__.context);
+  console.log(_actions_github__WEBPACK_IMPORTED_MODULE_1__.context.payload);
+
+  /*const pullsResponse = await client.pulls.list({
+    ...context.repo,
     base: baseBranch,
     state: 'open',
   });
   const prs = pullsResponse.data;
 
-  prs.forEach((pr) => {
+  prs.map((pr) => {
     if (prHasAutomergeLabel(pr)) {
       client.pulls.updateBranch({
-        ..._actions_github__WEBPACK_IMPORTED_MODULE_1__.context.repo,
+        ...context.repo,
         pull_number: pr.number,
       });
 
       console.log(pr);
     }
-  });
+  });*/
 }
 
 main();
@@ -568,7 +571,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.getApiBaseUrl = exports.getProxyAgent = exports.getAuthString = void 0;
-const httpClient = __importStar(__webpack_require__(936));
+const httpClient = __importStar(__webpack_require__(925));
 function getAuthString(token, options) {
     if (!token && !options.auth) {
         throw new Error('Parameter token or opts.auth is required');
@@ -653,7 +656,7 @@ exports.getOctokitOptions = getOctokitOptions;
 
 /***/ }),
 
-/***/ 936:
+/***/ 925:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
@@ -6052,6 +6055,6 @@ module.exports = require("zlib");;
 /******/ 	// module exports must be returned from runtime so entry inlining is disabled
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(925);
+/******/ 	return __webpack_require__(385);
 /******/ })()
 ;

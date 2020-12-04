@@ -14,7 +14,9 @@
     "react-scripts": "4.0.1"
   },
   "scripts": {
+    "build-actions": "yarn build-automerge-action && yarn build-check-action",
     "build-automerge-action": "ncc build -o ./.github/actions/automerge/bin ./.github/actions/automerge/index.js",
+    "build-check-action": "ncc build -o ./.github/actions/check/bin ./.github/actions/check/index.js",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
