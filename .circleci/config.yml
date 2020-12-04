@@ -11,4 +11,4 @@ jobs:
 workflows:
   install_and_test:
     jobs:
-      - example
+      - test
