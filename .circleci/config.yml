@@ -1,6 +1,6 @@
 version: 2.1
 jobs:
-  default:
+  build_and_test:
     machine:
       image: 'ubuntu-2004:202010-01'
     steps:
@@ -11,4 +11,4 @@ jobs:
 workflows:
   default:
     jobs:
-      - default
+      - build_and_test
