@@ -14,8 +14,14 @@ on:
 jobs:
   automerge:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [ 12.x ]
     steps:
-    - with:
-        repo-token: "${{ secrets.PRIVATE_TOKEN }}"
-        node-version: '12'
-      run: node ../../scripts/automerge-on-merge.js
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+          repo-token: "${{ secrets.PRIVATE_TOKEN }}"
+      - run: node ../../scripts/automerge-on-merge.js
