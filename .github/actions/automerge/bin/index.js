@@ -14,11 +14,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-const token = _actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput('token');
-const client = new _actions_github__WEBPACK_IMPORTED_MODULE_1__.GitHub(token);
-
 async function main() {
+  const token = _actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput('github-token');
+  const client = new _actions_github__WEBPACK_IMPORTED_MODULE_1__.GitHub(token);
   const baseBranch = _actions_github__WEBPACK_IMPORTED_MODULE_1__.context.payload.ref;
+
   const pullsResponse = await client.pulls.list({
     ..._actions_github__WEBPACK_IMPORTED_MODULE_1__.context.repo,
     base: baseBranch,

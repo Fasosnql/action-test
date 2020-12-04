@@ -1,13 +1,13 @@
 import * as core from '@actions/core';
-import * as github from '@actions/github';
-
-const token = core.getInput('token');
-const client = new github.GitHub(token);
+import { GitHub, context } from '@actions/github';
 
 async function main() {
-  const baseBranch = github.context.payload.ref;
+  const token = core.getInput('github-token');
+  const client = new GitHub(token);
+  const baseBranch = context.payload.ref;
+
   const pullsResponse = await client.pulls.list({
-    ...github.context.repo,
+    ...context.repo,
     base: baseBranch,
     state: 'open',
   });
