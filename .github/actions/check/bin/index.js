@@ -23,33 +23,14 @@ const prHasAutomergeLabel = (pr) => {
 async function main() {
   const token = _actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput('repo-token');
   const client = (0,_actions_github__WEBPACK_IMPORTED_MODULE_1__.getOctokit)(token);
-  const baseBranch = _actions_github__WEBPACK_IMPORTED_MODULE_1__.context.payload.ref;
 
   if (_actions_github__WEBPACK_IMPORTED_MODULE_1__.context.payload.check_suite.conclusion === 'success') {
-    console.log(_actions_github__WEBPACK_IMPORTED_MODULE_1__.context.payload.check_suite.pull_requests);
-    /*await client.pulls.merge({
-      ...context.repo,
-      pull_number: pr.number,
-    });*/
+    console.log(_actions_github__WEBPACK_IMPORTED_MODULE_1__.context.payload.check_suite);
+    await client.pulls.merge({
+      ..._actions_github__WEBPACK_IMPORTED_MODULE_1__.context.repo,
+      pull_number: _actions_github__WEBPACK_IMPORTED_MODULE_1__.context.payload.check_suite.pull_requests[0].number,
+    });
   }
-
-  /*const pullsResponse = await client.pulls.list({
-    ...context.repo,
-    base: baseBranch,
-    state: 'open',
-  });
-  const prs = pullsResponse.data;
-
-  prs.map((pr) => {
-    if (prHasAutomergeLabel(pr)) {
-      client.pulls.updateBranch({
-        ...context.repo,
-        pull_number: pr.number,
-      });
-
-      console.log(pr);
-    }
-  });*/
 }
 
 main();
