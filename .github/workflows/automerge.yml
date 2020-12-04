@@ -17,7 +17,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Hello world action step
+      - name: Action
         uses: ./.github/actions/automerge
         id: automerge1
         with:
