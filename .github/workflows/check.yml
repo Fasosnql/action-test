@@ -5,10 +5,10 @@
 # file with configuration.  For more information, see:
 # https://github.com/actions/labeler
 
-name: Merge after success ( CHECK )
+name: Check
 on:
   check_run:
-    types: [ created rerequested completed requested_action ]
+    types: [ created, rerequested, completed, requested_action ]
 
 jobs:
   check:
