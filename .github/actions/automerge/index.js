@@ -16,6 +16,7 @@ async function main() {
   await Promise.all(
     prs.map((pr) => {
       console.log(pr);
+
       /*client.pulls.updateBranch({
         ...github.context.repo,
         pull_number: pr.number,
