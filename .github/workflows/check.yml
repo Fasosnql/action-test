@@ -8,7 +8,7 @@
 name: Merge after success ( CHECK )
 on:
   check_run:
-    types: [ completed ]
+    types: [ created rerequested completed requested_action ]
 
 jobs:
   check:
