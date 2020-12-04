@@ -24,4 +24,4 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           repo-token: "${{ secrets.PRIVATE_TOKEN }}"
-      - run: node ../../scripts/automerge-on-merge.js
+      #- run: ../../scripts/automerge-on-merge.js
