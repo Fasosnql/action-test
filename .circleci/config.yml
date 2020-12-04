@@ -7,8 +7,8 @@ jobs:
       - checkout
       - run: echo "Hello world!"
       - run: yarn install
+      - run: yarn test
 workflows:
   default:
     jobs:
       - build
-      - test
